@@ -19,3 +19,7 @@ print(arr)
 #array with ones
 arr=np.ones((5))
 print(arr)
+
+# multi dimenstiomsal array
+three=np.array([[[1,2,3],[4,5,6]],[[7,8,9],[10,11,12]]])
+print(three)
