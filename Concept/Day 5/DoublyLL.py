@@ -43,11 +43,31 @@ class DoublyLL:
         if(t.data==target):
             temp.prev=t
             t.next=temp
+    def deleteDLL(self,value):
+        if self.head==None:
+            print("Nothing to delete")
+            return
+        t=self.head
+        if (t.data==value):
+            self.head=t.next
+            self.prev=None
+            return
+        while t.next !=None:
+            if(t.data==value):
+                t.prev.next=t.next
+                t.next.prev=t.prev
+                return
+            t=t.next
+        if(t.data==value):
+            t.prev.next=None 
+
+                
 
 Obj=DoublyLL()       
 Obj.insert_at_end(1) 
 Obj.insert_at_end(2)
 Obj.insert_at_end(3)
 Obj.insertAtMid(5,2)
+Obj.deleteDLL(2)
 
 Obj.PrintDLL()
