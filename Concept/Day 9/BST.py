@@ -31,6 +31,30 @@ def InOrder(root):
         print(root.data,end=" ")
         InOrder(root.right)    
 
+def getsucessor(root):
+    root=root.right
+    while(root!=None and root.left!=None):
+        root=root.left
+    return root      
+
+
+def delete(root,value):
+    if root==None:
+        return root
+    if (root.data>value):
+        root.left=delete(root.left,value)
+    elif (root.data<value):
+        root.right=delete(root.right,value)
+    else:
+        if (root.left==None):
+            return root.right
+        elif (root.right==None):
+            return root.left
+        else:
+            sucess=getsucessor(root)
+            root.data=sucess.data
+            root.right=delete(root.right,sucess.data)
+    return root    
 root=insert(None,20)
 insert(root,12)
 insert(root,18)
